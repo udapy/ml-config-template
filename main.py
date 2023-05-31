@@ -1,7 +1,6 @@
 import pathlib
 
 import torch
-
 from ds.dataset import create_dataloader
 from ds.models import LinearNet
 from ds.runner import Runner, run_epoch
@@ -22,7 +21,6 @@ TRAIN_LABELS = pathlib.Path(f"{DATA_DIR}/train-labels-idx1-ubyte.gz")
 
 
 def main():
-
     # Model and Optimizer
     model = LinearNet()
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)

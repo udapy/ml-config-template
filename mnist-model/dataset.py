@@ -3,9 +3,8 @@ from typing import Any
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, Dataset
-
 from ds.load_data import load_image_data, load_label_data
+from torch.utils.data import DataLoader, Dataset
 
 
 class MNIST(Dataset[Any]):

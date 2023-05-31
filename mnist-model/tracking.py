@@ -3,11 +3,10 @@ from pathlib import Path
 from typing import Protocol
 
 import numpy as np
+from ds.utils import create_experiment_log_dir
 from matplotlib import pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 from torch.utils.tensorboard import SummaryWriter
-
-from ds.utils import create_experiment_log_dir
 
 
 class Stage(Enum):
