@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 from ds.load_data import load_image_data, load_label_data
 
-RAW_DATA = "./data/raw"
+RAW_DATA = "./data/"
 TEST_DATA_RAW = pathlib.Path(f"{RAW_DATA}/t10k-images-idx3-ubyte.gz")
 TEST_LABELS_RAW = pathlib.Path(f"{RAW_DATA}/t10k-labels-idx1-ubyte.gz")
 TRAIN_DATA_RAW = pathlib.Path(f"{RAW_DATA}/train-images-idx3-ubyte.gz")
