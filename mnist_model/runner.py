@@ -2,11 +2,12 @@ from typing import Any, Optional
 
 import numpy as np
 import torch
-from ds.metrics import Metric
-from ds.tracking import ExperimentTracker, Stage
 from sklearn.metrics import accuracy_score
 from torch.utils.data.dataloader import DataLoader
 from tqdm import tqdm
+
+from mnist_model.metrics import Metric
+from mnist_model.tracking import ExperimentTracker, Stage
 
 
 class Runner:

@@ -1,42 +1,20 @@
-from enum import Enum, auto
 from pathlib import Path
-from typing import Protocol
 
 import numpy as np
-from ds.utils import create_experiment_log_dir
 from matplotlib import pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 from torch.utils.tensorboard import SummaryWriter
 
-
-class Stage(Enum):
-    TRAIN = auto()
-    TEST = auto()
-    VAL = auto()
-
-
-class ExperimentTracker(Protocol):
-    def set_stage(self, stage: Stage):
-        """Sets the current stage of the experiment."""
-
-    def add_batch_metric(self, name: str, value: float, step: int):
-        """Implements logging a batch-level metric."""
-
-    def add_epoch_metric(self, name: str, value: float, step: int):
-        """Implements logging a epoch-level metric."""
-
-    def add_epoch_confusion_matrix(
-        self, y_true: list[np.array], y_pred: list[np.array], step: int
-    ):
-        """Implements logging a confusion matrix at epoch-level."""
+from mnist_model.tracking import Stage
+from mnist_model.utils import create_experiment_log_dir
 
 
 class TensorboardExperiment:
     def __init__(self, log_path: str, create: bool = True):
+        log_dir = create_experiment_log_dir(root=log_path)
         self.stage = Stage.TRAIN
-        self._writer = SummaryWriter(
-            log_dir=create_experiment_log_dir(log_path, parents=True)
-        )
+        self._validate_log_dir(log_dir, create=create)
+        self._writer = SummaryWriter(log_dir=log_dir)
         plt.ioff()
 
     def set_stage(self, stage: Stage):

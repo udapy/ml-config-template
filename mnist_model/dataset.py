@@ -3,8 +3,9 @@ from typing import Any
 
 import numpy as np
 import torch
-from ds.load_data import load_image_data, load_label_data
 from torch.utils.data import DataLoader, Dataset
+
+from mnist_model.load_data import load_image_data, load_label_data
 
 
 class MNIST(Dataset[Any]):
@@ -59,8 +60,14 @@ class MNIST(Dataset[Any]):
 
 
 def create_dataloader(
-    batch_size: int, data_path: Path, label_path: Path, shuffle: bool = True
+    batch_size: int,
+    root_path: str,
+    data_file: str,
+    label_file: str,
+    shuffle: bool = True,
 ) -> DataLoader[Any]:
+    data_path = Path(f"{root_path}/{data_file}")
+    label_path = Path(f"{root_path}/{label_file}")
     data = load_image_data(data_path)
     label_data = load_label_data(label_path)
     return DataLoader(

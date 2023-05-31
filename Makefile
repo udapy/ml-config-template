@@ -4,9 +4,9 @@ SHELL = /bin/bash
 .PHONY: help
 help:
 	@echo "Commands:"
-	@echo "poetry-env	: creates a virtual environment."
-	@echo "style   : executes style formatting."
-	@echo "test    : execute tests on code, data and models."
+	@echo "poetry-env : creates a virtual environment."
+	@echo "style : executes style formatting."
+	@echo "test  : execute tests on code, data and models."
 
 # Styling
 .PHONY: style
