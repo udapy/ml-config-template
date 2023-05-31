@@ -31,3 +31,8 @@ test:
 	poetry run pytest -m "not training"
 
 # .PHONY: dvc
+
+
+.PHONY: model-run
+model-run: 
+	python3 main.py
