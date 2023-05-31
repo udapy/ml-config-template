@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "mlops-configuration"
+version = "0.1.0"
+description = "This is ml project configuration template using hydra"
+authors = ["Uday Ramesh Phalak"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "mlops_configuration"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^7.3.1"
+bson = "^0.5.10"
+torch = "^2.0.1"
+numpy = "^1.24.3"
+pandas = "^2.0.2"
+scikit-learn = "^1.2.2"
+tensorboard = "^2.13.0"
+tqdm = "^4.65.0"
+pillow = "^9.5.0"
+matplotlib = "^3.7.1"
+hydra-core = "^1.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
